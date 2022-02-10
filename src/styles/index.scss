@@ -1,7 +1,10 @@
+@import "test";
+
 body {
-  $bg: green;
+  $bg: red;
+
   background-color: $bg;
   display: flex;
-  font-size: 14px;
   flex-direction: column;
+  font-size: $fontSize;
 }

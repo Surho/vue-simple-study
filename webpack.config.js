@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 let mode = 'development';
 let target = 'web';
@@ -22,7 +23,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.sass$/i,
+                test: /\.scss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader",
@@ -37,15 +38,9 @@ module.exports = {
         ]
     },
 
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-        },
-        extensions: ['*', '.js', '.vue', '.json']
-    },
-
     plugins: [
         new MiniCssExtractPlugin(),
+        new VueLoaderPlugin(),
     ],
 
     devtool: 'source-map',
