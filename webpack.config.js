@@ -22,15 +22,26 @@ module.exports = {
                 }
             },
             {
-                test: /\.(s[ac]|c)ss]$/i,
+                test: /\.sass$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
                     "css-loader",
                     "postcss-loader",
                     "sass-loader"
                 ]
+            },
+            {
+                test: /\.vue?$/,
+                loader: 'vue-loader',
             }
         ]
+    },
+
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        },
+        extensions: ['*', '.js', '.vue', '.json']
     },
 
     plugins: [
