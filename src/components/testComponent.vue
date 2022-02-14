@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="testStyle">
         Im SPA component
     </div>
 </template>
@@ -10,6 +10,8 @@
     }
 </script>
 
-<style scoped>
-
+<style>
+    .testStyle {
+        color: blue;
+    }
 </style>

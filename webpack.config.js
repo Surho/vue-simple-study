@@ -13,6 +13,12 @@ if(process.env.NODE_ENV === 'production') {
 module.exports = {
     mode,
     target,
+    entry: path.join(__dirname, 'src', 'index.js'),
+    output: {
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/dist/',
+        filename: 'build.js'
+    },
     module: {
         rules: [
             {
@@ -23,19 +29,34 @@ module.exports = {
                 }
             },
             {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {}
+                }
+            },
+            {
                 test: /\.scss$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    },
                     "css-loader",
                     "postcss-loader",
                     "sass-loader"
                 ]
             },
-            {
-                test: /\.vue?$/,
-                loader: 'vue-loader',
-            }
         ]
+    },
+
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        },
+        extensions: ['*', '.js', '.vue', '.json']
     },
 
     plugins: [
