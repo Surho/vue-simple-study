@@ -1,17 +1,23 @@
 <template>
     <div class="testStyle">
         Im SPA component
+        {{ test }}
     </div>
 </template>
 
 <script>
     export default {
-
+        data() {
+            return {
+                test: 14
+            }
+        }
     }
 </script>
 
-<style>
+<style lang="scss" module>
     .testStyle {
-        color: blue;
+        color: lightgray;
+        font-size: 16px;
     }
 </style>

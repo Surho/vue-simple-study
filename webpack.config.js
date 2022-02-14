@@ -32,8 +32,15 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                    loaders: {}
-                }
+                    loaders: {
+                        js: 'babel-loader',
+                        scss: [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader',
+                        ]
+                    },
+                },
             },
             {
                 test: /\.scss$/i,
@@ -69,6 +76,5 @@ module.exports = {
         static: {
             directory: path.join(__dirname, './dist'),
         },
-        hot: true,
     }
 };
