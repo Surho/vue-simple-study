@@ -1,6 +1,6 @@
 <template>
     <div class="testStyle">
-        Im SPA component
+        Im SPA component FUUUU
         {{ test }}
     </div>
 </template>
@@ -9,13 +9,16 @@
     export default {
         data() {
             return {
-                test: 14
+                test: 488
             }
+        },
+        mounted() {
+            console.log('hi from vue!');
         }
     }
 </script>
 
-<style lang="scss" module>
+<style>
     .testStyle {
         color: lightgray;
         font-size: 16px;

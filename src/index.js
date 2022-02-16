@@ -2,7 +2,7 @@ import {test1} from './test-1';
 import {test2} from './test-2';
 import Vue from 'vue';
 import testComponent from './components/testComponent.vue';
-import './assets/main.scss'
+import './assets/style.css'
 
 const test = 'testing';
 test1();
