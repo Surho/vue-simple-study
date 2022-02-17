@@ -8,6 +8,8 @@ const test = 'testing';
 test1();
 test2();
 
+console.log('!!!313123123');
+
 let instance = new Vue({
     el: '#app',
     render: h => h(testComponent),

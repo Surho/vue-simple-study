@@ -18,7 +18,7 @@ module.exports = {
     entry: join(__dirname, 'src', 'index.js'),
     output: {
         path: join(__dirname, 'build'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
     },
     module: {
         rules: [
@@ -73,7 +73,7 @@ module.exports = {
             inject: true,
             cache: true,
             title: 'vue-study-project',
-            template: join(__dirname, 'index.html'),
+            template: join(__dirname, 'src', 'index-template.html'),
         })
     ],
 
