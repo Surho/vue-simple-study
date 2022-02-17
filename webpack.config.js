@@ -40,20 +40,28 @@ module.exports = {
                     'vue-style-loader',
                     'css-loader',
                 ]
-            }
+            },
+            {
+                test: /\.scss$/i,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            esModule: false,
+                        },
+                    },
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader"
+                ]
+            },
+            {
+                test: /(\.jpg|\.png|\.ico|.gif|\.tif|\.svg|\.webp)\??.*$/,
+                loader: 'file-loader',
+            },
             // {
-            //     test: /\.scss$/i,
-            //     use: [
-            //         {
-            //             loader: MiniCssExtractPlugin.loader,
-            //             options: {
-            //                 esModule: false,
-            //             },
-            //         },
-            //         "css-loader",
-            //         "postcss-loader",
-            //         "sass-loader"
-            //     ]
+            //     test: /\.(woff|woff2|eot|ttf|otf)$/,
+            //     loader: ''
             // },
         ]
     },
@@ -66,7 +74,9 @@ module.exports = {
     // },
 
     plugins: [
-        new MiniCssExtractPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css",
+        }),
         new VueLoaderPlugin(),
         new HTMLWebpackPlugin({
             showErrors: true,

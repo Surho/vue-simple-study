@@ -2,6 +2,7 @@
     <div class="testStyle">
         Im SPA component FUUUU
         {{ test }}
+        <div class="qwerty">asdasds</div>
     </div>
 </template>
 
@@ -18,9 +19,10 @@
     }
 </script>
 
-<style>
+<style lang="scss" module>
     .testStyle {
         color: lightgray;
-        font-size: 16px;
+        font-size: 106px;
+        display: flex;
     }
 </style>
