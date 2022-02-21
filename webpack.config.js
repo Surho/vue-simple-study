@@ -1,4 +1,5 @@
 const { join } = require('path');
+const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -12,13 +13,18 @@ const { HotModuleReplacementPlugin } = require('webpack');
 //     target = 'browserslist';
 // }
 
+const PATHS = {
+  images: path.resolve(__dirname, 'src/assets/img'),
+};
+
 module.exports = {
     mode: 'development',
     // target,
     entry: join(__dirname, 'src', 'index.js'),
     output: {
         path: join(__dirname, 'build'),
-        filename: 'js/bundle.js'
+        filename: 'js/bundle.js',
+         assetModuleFilename: 'images/[hash][ext]',
     },
     module: {
         rules: [
@@ -57,7 +63,7 @@ module.exports = {
             },
             {
                 test: /(\.jpg|\.png|\.ico|.gif|\.tif|\.svg|\.webp)\??.*$/,
-                loader: 'file-loader',
+                type: 'asset/resource'
             },
             // {
             //     test: /\.(woff|woff2|eot|ttf|otf)$/,
